@@ -58,8 +58,11 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.delete_city).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                dataList.remove(selectedIndex);
-                cityAdapter.notifyDataSetChanged();
+                if (selectedIndex != -1) {
+                    dataList.remove(selectedIndex);
+                    cityAdapter.notifyDataSetChanged();
+                    selectedIndex = -1;
+                }
             }
         });
 
